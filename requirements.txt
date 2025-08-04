@@ -1,0 +1,17 @@
+# Core Dependencies
+Owlready2>=0.40
+Biopython>=1.81
+selenium>=4.15.2
+undetected-chromedriver>=3.5.4
+PyMuPDF>=1.23.8
+langchain>=0.1.0
+llm-ie>=0.1.0
+dedupe>=2.1.2
+Jinja2>=3.1.2
+
+# Development Dependencies
+pytest>=8.4.1
+black>=24.3.0
+isort>=5.13.2
+mypy>=1.8.0
+pylint>=3.0.3

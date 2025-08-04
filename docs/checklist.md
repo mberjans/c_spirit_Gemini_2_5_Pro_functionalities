@@ -4,11 +4,11 @@ Of course. Here is a detailed checklist of granular tasks for each development t
 
 #### **Ticket: PROJ-001 \- Initial Project Scaffolding and Dependency Management**
 
-- [ ] **PROJ-001-T01**: Create a test in tests/test\_project\_setup.py to verify the existence of the main package directory (aim2/) and all required sub-packages (ontology/, corpus/, extraction/, postprocessing/).  
-- [ ] **PROJ-001-T02**: Create the directory structure as specified in the project plan, including \_\_init\_\_.py files to make them recognizable as Python packages.  
-- [ ] **PROJ-001-T03**: Create the pyproject.toml file defining the project metadata (name, version, author).  
-- [ ] **PROJ-001-T04**: Create a requirements.txt file and add all specified libraries: Owlready2, Biopython, Selenium, undetected-chromedriver, PyMuPDF, LangChain, llm-ie, dedupe, pytest, Jinja2.  
-- [ ] **PROJ-001-T05**: Run the unit tests to confirm the project structure is correct.
+- [X] **PROJ-001-T01**: Create a test in tests/test\_project\_setup.py to verify the existence of the main package directory (aim2/) and all required sub-packages (ontology/, corpus/, extraction/, postprocessing/).  
+- [X] **PROJ-001-T02**: Create the directory structure as specified in the project plan, including \_\_init\_\_.py files to make them recognizable as Python packages.  
+- [X] **PROJ-001-T03**: Create the pyproject.toml file defining the project metadata (name, version, author).  
+- [X] **PROJ-001-T04**: Create a requirements.txt file and add all specified libraries: Owlready2, Biopython, Selenium, undetected-chromedriver, PyMuPDF, LangChain, llm-ie, dedupe, pytest, Jinja2.  
+- [X] **PROJ-001-T05**: Run the unit tests to confirm the project structure is correct.
 
 #### **Ticket: PROJ-002 \- Implement Centralized Configuration System**
 

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aim2"
+version = "0.1.0"
+description = "Automated Integration of Multi-omics Knowledge for Plant Resilience"
+readme = "README.md"
+authors = [
+    {name = "AIM2 Team"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "isort>=5.0.0",
+    "mypy>=0.900",
+    "pylint>=2.12.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "aim2"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v"
