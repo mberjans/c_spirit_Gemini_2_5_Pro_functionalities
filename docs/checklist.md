@@ -39,11 +39,11 @@ Of course. Here is a detailed checklist of granular tasks for each development t
 
 #### **Ticket: ONT-002 \- Define Custom Relationship Properties**
 
-- [ ] **ONT-002-T01**: Write unit tests in tests/ontology/test\_schema.py to check that custom properties (accumulates\_in, affects) are created as ObjectProperty subclasses.  
-- [ ] **ONT-002-T02**: Add tests to verify that the domain and range for each property are correctly assigned.  
-- [ ] **ONT-002-T03**: Add tests to verify that sub-properties (e.g., upregulates) correctly inherit from their parent property (affects).  
-- [ ] **ONT-002-T04**: Implement the property definitions in aim2/ontology/schema.py using Owlready2's class-based syntax.  
-- [ ] **ONT-002-T05**: Run all unit tests for custom properties to ensure they pass.
+- [X] **ONT-002-T01**: Write unit tests in tests/ontology/test\_schema.py to check that custom properties (accumulates\_in, affects) are created as ObjectProperty subclasses.  
+- [X] **ONT-002-T02**: Add tests to verify that the domain and range for each property are correctly assigned.  
+- [X] **ONT-002-T03**: Add tests to verify that sub-properties (e.g., upregulates) correctly inherit from their parent property (affects).  
+- [X] **ONT-002-T04**: Implement the property definitions in aim2/ontology/schema.py using Owlready2's class-based syntax.  
+- [X] **ONT-002-T05**: Run all unit tests for custom properties to ensure they pass.
 
 #### **Ticket: ONT-003 \- Implement Plant Ontology (PO) Importer**
 
