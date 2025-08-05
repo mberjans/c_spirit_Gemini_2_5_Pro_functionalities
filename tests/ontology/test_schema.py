@@ -71,6 +71,93 @@ class TestAIM2OntologySchema(unittest.TestCase):
                       "Ontology should have 'hasConfidence' property")
         self.assertTrue('DataProperty' in str(type(self.onto.hasConfidence).__name__),
                      f"hasConfidence should be a DataProperty, got {type(self.onto.hasConfidence).__name__}")
+    
+    def test_custom_relationship_properties_exist(self):
+        """Test that custom relationship properties exist and have the correct types."""
+        # Test basic custom properties
+        custom_props = [
+            'made_via',
+            'accumulates_in',
+            'affects',
+            'participates_in',
+            'has_participant',
+            'located_in',
+            'has_location'
+        ]
+        
+        for prop in custom_props:
+            with self.subTest(property=prop):
+                self.assertTrue(hasattr(self.onto, prop),
+                             f"Ontology should have '{prop}' property")
+                self.assertTrue('ObjectProperty' in str(type(getattr(self.onto, prop)).__name__),
+                             f"{prop} should be an ObjectProperty, got {type(getattr(self.onto, prop)).__name__}")
+    
+    def test_affects_subproperties_exist(self):
+        """Test that subproperties of 'affects' exist and have the correct inheritance."""
+        # Test subproperties of 'affects'
+        affects_subprops = [
+            'upregulates',
+            'downregulates',
+            'inhibits',
+            'activates'
+        ]
+        
+        # First verify the base 'affects' property exists
+        self.assertTrue(hasattr(self.onto, 'affects'),
+                      "Ontology should have 'affects' property")
+        
+        # Then check each subproperty
+        for subprop in affects_subprops:
+            with self.subTest(subproperty=subprop):
+                self.assertTrue(hasattr(self.onto, subprop),
+                             f"Ontology should have '{subprop}' property")
+                # In Owlready2, subproperties are tracked in the parent's .subclasses()
+                subprop_obj = getattr(self.onto, subprop)
+                self.assertIn(subprop_obj, self.onto.affects.subclasses(),
+                           f"{subprop} should be a subproperty of 'affects'")
+    
+    def test_inverse_properties(self):
+        """Test that inverse properties are correctly defined."""
+        # Test participates_in / has_participant
+        self.assertEqual(self.onto.participates_in.inverse_property, self.onto.has_participant,
+                       "participates_in should have has_participant as inverse")
+        self.assertEqual(self.onto.has_participant.inverse_property, self.onto.participates_in,
+                       "has_participant should have participates_in as inverse")
+        
+        # Test located_in / has_location
+        self.assertEqual(self.onto.located_in.inverse_property, self.onto.has_location,
+                       "located_in should have has_location as inverse")
+        self.assertEqual(self.onto.has_location.inverse_property, self.onto.located_in,
+                       "has_location should have located_in as inverse")
+    
+    def test_property_domains_and_ranges(self):
+        """Test that properties have the correct domain and range."""
+        # In Owlready2, properties can have multiple domains and ranges
+        # We need to check that Thing is included in both domain and range
+        
+        def assert_has_thing_domain(prop, prop_name):
+            """Helper to check if Thing is in the property's domain."""
+            domain_names = [d.name for d in prop.domain]
+            self.assertIn('Thing', domain_names,
+                        f"{prop_name} should have Thing in its domain")
+        
+        def assert_has_thing_range(prop, prop_name):
+            """Helper to check if Thing is in the property's range."""
+            range_names = [r.name for r in prop.range]
+            self.assertIn('Thing', range_names,
+                        f"{prop_name} should have Thing in its range")
+        
+        # Test made_via
+        assert_has_thing_domain(self.onto.made_via, 'made_via')
+        assert_has_thing_range(self.onto.made_via, 'made_via')
+        
+        # Test accumulates_in
+        assert_has_thing_domain(self.onto.accumulates_in, 'accumulates_in')
+        assert_has_thing_range(self.onto.accumulates_in, 'accumulates_in')
+        
+        # Test affects
+        assert_has_thing_domain(self.onto.affects, 'affects')
+        assert_has_thing_range(self.onto.affects, 'affects')
 
 if __name__ == "__main__":
     unittest.main()

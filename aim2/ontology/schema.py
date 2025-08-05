@@ -105,19 +105,27 @@ def init_ontology():
         # Define sub-properties of 'affects'
         class upregulates(affects):
             """Indicates that one entity upregulates another."""
-            pass
+            namespace = onto
+            domain = [Thing]
+            range = [Thing]
 
         class downregulates(affects):
             """Indicates that one entity downregulates another."""
-            pass
+            namespace = onto
+            domain = [Thing]
+            range = [Thing]
 
         class inhibits(affects):
             """Indicates that one entity inhibits another."""
-            pass
+            namespace = onto
+            domain = [Thing]
+            range = [Thing]
 
         class activates(affects):
             """Indicates that one entity activates another."""
-            pass
+            namespace = onto
+            domain = [Thing]
+            range = [Thing]
 
         # Define additional relationships for biological processes
         class participates_in(ObjectProperty):
