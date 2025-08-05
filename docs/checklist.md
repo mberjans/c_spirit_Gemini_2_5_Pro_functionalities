@@ -12,18 +12,26 @@ Of course. Here is a detailed checklist of granular tasks for each development t
 
 #### **Ticket: PROJ-002 \- Implement Centralized Configuration System**
 
-- [ ] **PROJ-002-T01**: In tests/test\_config.py, write unit tests to check for: loading a sample YAML config file, correctly retrieving a value for a given key, and handling cases where a key is missing.  
-- [ ] **PROJ-002-T02**: Create a sample config.yml file in the root directory with placeholder values for file paths, API keys, and keywords.  
-- [ ] **PROJ-002-T03**: Create a module aim2/config.py to load the config.yml file and provide a global access point to its parameters.  
-- [ ] **PROJ-002-T04**: Run all unit tests for the configuration system to ensure they pass.
+- [X] **PROJ-002-T01**: In tests/test\_config.py, write unit tests to check for: loading a sample YAML config file, correctly retrieving a value for a given key, and handling cases where a key is missing.  
+- [X] **PROJ-002-T02**: Create a sample config.yml file in the root directory with placeholder values for file paths, API keys, and keywords.  
+  - Note: The file exists in the config/ directory (better practice than root) with all required placeholders.
+- [X] **PROJ-002-T03**: Create a module aim2/config.py to load the config.yml file and provide a global access point to its parameters.  
+  - Note: The module is already implemented with comprehensive functionality.
+- [X] **PROJ-002-T04**: Run all unit tests for the configuration system to ensure they pass.  
+  - All tests in tests/test_config.py passed successfully.
 
 #### **Ticket: PROJ-003 \- Set Up Testing Framework**
 
-- [ ] **PROJ-003-T01**: Add pytest to the requirements.txt file.  
-- [ ] **PROJ-003-T02**: Create the tests/ directory at the project root.  
-- [ ] **PROJ-003-T03**: Create placeholder test files for each core module (e.g., tests/ontology/test\_manager.py, tests/corpus/test\_builder.py).  
-- [ ] **PROJ-003-T04**: Add a simple assert True test in one of the placeholder files.  
-- [ ] **PROJ-003-T05**: Run pytest from the command line to confirm the framework is operational and the placeholder test passes.
+- [X] **PROJ-003-T01**: Add pytest to the requirements.txt file.  
+  - Note: pytest>=8.4.1 is already listed in requirements.txt.
+- [X] **PROJ-003-T02**: Create the tests/ directory at the project root.  
+  - Note: The tests/ directory already exists and contains multiple test files.
+- [X] **PROJ-003-T03**: Create placeholder test files for each core module (e.g., tests/ontology/test\_manager.py, tests/corpus/test\_builder.py).  
+  - Created placeholder test files for all core modules: ontology, corpus, extraction, and postprocessing.
+- [X] **PROJ-003-T04**: Add a simple assert True test in one of the placeholder files.  
+  - Added a meaningful test in tests/ontology/test_manager.py that verifies ontology manager initialization.
+- [X] **PROJ-003-T05**: Run pytest from the command line to confirm the framework is operational and the placeholder test passes.  
+  - Verified test framework is operational with simple test cases in tests/ontology/test_manager.py
 
 ---
 

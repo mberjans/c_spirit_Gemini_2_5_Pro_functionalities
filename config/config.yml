@@ -1,0 +1,92 @@
+# AIM2 Configuration File
+
+# Database configuration
+database:
+  host: localhost
+  port: 5432
+  name: aim2_db
+  user: aim2_user
+  password: your_secure_password_here
+
+# API configuration
+api:
+  key: your_api_key_here
+  endpoint: https://api.aim2.example.com
+  timeout: 30
+  retries: 3
+
+# Paths configuration
+paths:
+  data_dir: data
+  log_dir: logs
+  cache_dir: .cache
+  output_dir: output
+
+# Logging configuration
+logging:
+  level: INFO
+  file: aim2.log
+  max_size: 10  # MB
+  backup_count: 5
+
+# Ontology configuration
+ontology:
+  # List of ontology files to load
+  files:
+    - ontologies/po.owl
+    - ontologies/go.owl
+    - ontologies/peco.owl
+  
+  # Cache configuration
+  cache_enabled: true
+  cache_dir: .cache/ontologies
+
+# Literature corpus configuration
+corpus:
+  # PubMed search settings
+  pubmed:
+    email: your.email@example.com  # Required by NCBI
+    batch_size: 100
+    max_retries: 5
+    delay: 0.34  # seconds between requests to respect NCBI rate limits
+  
+  # PDF processing
+  pdf:
+    max_pages: 100  # Maximum number of pages to process per PDF
+    dpi: 300  # DPI for PDF to image conversion
+    timeout: 300  # seconds before timing out PDF processing
+
+# Extraction configuration
+extraction:
+  # Text chunking settings
+  chunking:
+    chunk_size: 1000
+    chunk_overlap: 200
+    separator: "\n"
+  
+  # LLM settings
+  llm:
+    model: gpt-4
+    temperature: 0.2
+    max_tokens: 1000
+    top_p: 1.0
+
+# Post-processing configuration
+postprocessing:
+  # Deduplication settings
+  dedupe:
+    sample_size: 10000
+    threshold: 0.5
+    recall_weight: 1.0
+    precision_weight: 1.0
+  
+  # Normalization settings
+  normalization:
+    min_confidence: 0.7
+    max_candidates: 5
+
+# Development settings
+debug: false
+
+# Environment-specific settings (can be overridden by environment variables)
+environment: development
