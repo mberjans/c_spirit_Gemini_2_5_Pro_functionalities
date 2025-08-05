@@ -39,11 +39,16 @@ Of course. Here is a detailed checklist of granular tasks for each development t
 
 #### **Ticket: ONT-001 \- Define Core AIM2 Ontology Schema and Manager**
 
-- [ ] **ONT-001-T01**: Write unit tests in tests/ontology/test\_schema.py to verify that the core classes (StructuralAnnotation, SourceAnnotation, FunctionalAnnotation) are created successfully within an Owlready2 ontology and are subclasses of owl.Thing.  
-- [ ] **ONT-001-T02**: Implement the class definitions in aim2/ontology/schema.py.  
-- [ ] **ONT-001-T03**: Write unit tests in tests/ontology/test\_manager.py to ensure the AIM2Ontology class can be instantiated and creates an empty ontology world.  
-- [ ] **ONT-001-T04**: Implement the basic AIM2Ontology class structure in aim2/ontology/manager.py.  
-- [ ] **ONT-001-T05**: Run all unit tests for the core schema and manager to ensure they pass.
+- [X] **ONT-001-T01**: Write unit tests in tests/ontology/test\_schema.py to verify that the core classes (StructuralAnnotation, SourceAnnotation, FunctionalAnnotation) are created successfully within an Owlready2 ontology and are subclasses of owl.Thing.  
+  - Created comprehensive tests verifying core classes and properties with proper inheritance and typing.
+- [X] **ONT-001-T02**: Implement the class definitions in aim2/ontology/schema.py.  
+  - Verified that all core classes, properties, and relationships are properly defined with appropriate inheritance and documentation.
+- [X] **ONT-001-T03**: Write unit tests in tests/ontology/test\_manager.py to ensure the AIM2Ontology class can be instantiated and creates an empty ontology world.  
+  - Implemented comprehensive tests for initialization, core classes, saving/loading, reasoning, and ontology imports.
+- [X] **ONT-001-T04**: Implement the basic AIM2Ontology class structure in aim2/ontology/manager.py.  
+  - Implemented with full functionality including loading, saving, reasoning, and ontology import capabilities.
+- [X] **ONT-001-T05**: Run all unit tests for the core schema and manager to ensure they pass.  
+  - All 21 tests passed successfully for the core schema and manager components.
 
 #### **Ticket: ONT-002 \- Define Custom Relationship Properties**
 

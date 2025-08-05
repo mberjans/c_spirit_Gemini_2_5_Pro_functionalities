@@ -6,35 +6,17 @@ This module contains the core ontology definitions and management for the AIM2 s
 
 # Import the main classes and functions
 from .manager import AIM2Ontology
-from .schema import (
-    onto,
-    Annotation,
-    StructuralAnnotation,
-    SourceAnnotation,
-    FunctionalAnnotation,
-    is_a,
-    part_of,
-    has_part,
-    has_functional_annotation,
-    has_structural_annotation,
-    has_source_annotation,
-    hasSource,
-    hasConfidence,
-)
 
+# Initialize the ontology and export commonly used classes and properties
+from .schema import init_ontology, onto
+
+# Initialize the ontology if not already done
+if onto is None:
+    onto = init_ontology()
+
+# Export commonly used classes and properties
 __all__ = [
     'AIM2Ontology',
     'onto',
-    'Annotation',
-    'StructuralAnnotation',
-    'SourceAnnotation',
-    'FunctionalAnnotation',
-    'is_a',
-    'part_of',
-    'has_part',
-    'has_functional_annotation',
-    'has_structural_annotation',
-    'has_source_annotation',
-    'hasSource',
-    'hasConfidence',
+    'init_ontology',
 ]
